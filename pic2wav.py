@@ -76,10 +76,10 @@ if __name__ == '__main__':
     help = "  Convert picture to spectrogrammed sound-file (WAV).\n  Run command:\n    python " + sys.argv[0]\
         + " [-p <picture>] [-w <output.wav>] [-d <seconds>] [-r <resolution>] [-e] [-i]\n\
         Options:\n\
-        -p - input picture file (PNG, JPEG, etc.) (default to picture.png)\n\
-        -w - output WAV file (default to 'input picture file' + .wav)\n\
-        -d - output sound file duration in seconds (default to 2)\n\
-        -r - spectrogram resolution in pixels; influences work time (default to 200)\n\
+        -p - input picture file (PNG, JPEG, etc.) (default is picture.png)\n\
+        -w - output WAV file (default is 'input picture file' + .wav)\n\
+        -d - output sound file duration in seconds (default is 2)\n\
+        -r - spectrogram resolution in pixels; influences work time (default is 200)\n\
         -e - equalize image (enhances contrast)\n\
         -i - invert image colors"
     try:
