@@ -23,4 +23,4 @@ Spectrogram of created WAV file (run 'pypy pic2wav.py -d8'):
 The code is optimized for pefromance in Python 3 with math and Pillow (PIL) libraries. I recommend running it under [PyPy](https://www.pypy.org/) -- this gives about 30% speedup.
 
 ## Thanks
-Inspired by [alexadam's img-encode](https://github.com/alexadam/img-encode/tree/master/v1-python)
+Based on [alexadam's img-encode](https://github.com/alexadam/img-encode/tree/master/v1-python)
