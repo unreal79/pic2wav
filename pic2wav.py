@@ -20,7 +20,7 @@ def main(picture_file, wav_file, duration, resolution, invert_image, equalize_im
     sample_size = 2
     img_max_sampling = 32767
 
-    num_samples = sample_rate * duration
+    num_samples = int(sample_rate * duration)
     tmp_buff = [0.0] * num_samples
     data = array.array('h')
 
@@ -33,7 +33,7 @@ def main(picture_file, wav_file, duration, resolution, invert_image, equalize_im
     width, height = l_image.size
     px = l_image.load()
     a_const = 100 / 765
-    b_const = 20000 * math.pi * 2 / height / sample_rate
+    b_const = 22000 * math.pi * 2 / height / sample_rate
     c_const = height + 1
 
     print("Processing picture...")
@@ -74,20 +74,17 @@ if __name__ == '__main__':
     invert_image = False
     equalize_image = False
     help = "  Convert picture to spectrogrammed sound-file (WAV).\n  Run command:\n    python " + sys.argv[0]\
-        + " [-p <picture>] [-w <output.wav>] [-d <seconds>] [-r <resolution>] [-e] [-i]\n\
+        + " [[-p] <picture>] [-w <output.wav>] [-d <seconds>] [-r <resolution>] [-e] [-i]\n\
         Options:\n\
         -p - input picture file (PNG, JPEG, etc.) (default is picture.png)\n\
         -w - output WAV file (default is 'input picture file' + .wav)\n\
-        -d - output sound file duration in seconds (default is 2)\n\
-        -r - spectrogram resolution in pixels; influences work time (default is 200)\n\
+        -d - output sound file duration in seconds (float) (default is 2)\n\
+        -r - spectrogram resolution in pixels; influences work time (default is 256)\n\
         -e - equalize image (enhances contrast)\n\
         -i - invert image colors"
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hp:w:d:r:ei")
     except getopt.GetoptError:
-        print(help)
-        sys.exit(2)
-    if len(opts) == 0:
         print(help)
         sys.exit(2)
 
@@ -101,7 +98,7 @@ if __name__ == '__main__':
         elif opt == "-w":
             wav_file = arg
         elif opt == "-d":
-            duration = int(float(arg))
+            duration = float(arg)
         elif opt == "-r":
             resolution = int(float(arg))
         elif opt == "-e":
@@ -109,9 +106,15 @@ if __name__ == '__main__':
         elif opt == "-i":
             invert_image = True
     if resolution == 0:
-        resolution = 200
+        resolution = 256
+    if len(opts) == 0 and len(sys.argv) > 1:
+        if len(sys.argv) == 2:
+            picture_file = sys.argv[1]
+        else:
+            print(help)
+            sys.exit(2)
 
-    print("Using Python {}.".format(sys.version))
+    print(f"Using Python {sys.version}.")
     start_time = time.time()
     main(picture_file, wav_file, duration, resolution, invert_image, equalize_image)
     print(f"Done in {time.time() - start_time} secs\n")
