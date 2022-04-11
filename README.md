@@ -1,5 +1,5 @@
 # pic2wav - Spectrogram from picture
-Encode an image to sound (WAV file) and view it as a spectrogram while playng.
+Encode an image to sound (WAV file) and view it as a spectrogram in audio player.
 
 Source picture:
 
@@ -12,10 +12,10 @@ Spectrogram of created WAV file (run 'pypy pic2wav.py -d8'):
 ## Options
     pic2wav.py -p <picture>] [-w <output.wav>] [-d <seconds>] [-r <resolution>] [-e] [-i]
     Options:
-      -p - input picture file (PNG, JPEG, etc.) (default to picture.png)
-      -w - output WAV file (default to 'input picture file' + .wav)
-      -d - output sound file duration in seconds (default to 2)
-      -r - spectrogram resolution in pixels; influences work time (default to 200)
+      -p - input picture file (PNG, JPEG, etc.) (default is picture.png)
+      -w - output WAV file (default is 'input picture file' + .wav)
+      -d - output sound file duration in seconds (default is 2)
+      -r - spectrogram resolution; influences work time (default is 200)
       -e - equalize image (enhances contrast)
       -i - invert image colors
 
