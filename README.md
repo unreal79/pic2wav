@@ -2,7 +2,7 @@
 Encode an image to sound (WAV file) and view it as a spectrogram in audio player.
 
 # Example
-`python3 pic2wav.py -d8`
+`python3 pic2wav.py picture.png -d8 -r200`
 
 Source picture:
 
