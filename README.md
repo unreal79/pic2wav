@@ -15,10 +15,10 @@ Spectrogram of created WAV file:
 ## Options
     pic2wav.py [[-p] <picture>] [-w <output.wav>] [-d <seconds>] [-r <resolution>] [-e] [-i]
     Options:
-      -p - input picture file name (PNG, JPEG, etc.) (default is picture.png)
-      -w - output WAV file name (default is 'input picture file' + .wav)
+      -p - input picture file name (PNG, JPEG, etc.) (default is 'picture.png')
+      -w - output WAV file name (default is 'input picture file' + '.wav')
       -d - output sound file duration in seconds (float) (default is 2)
-      -r - spectrogram resolution; influences work time (default is 256)
+      -r - spectrogram resolution (height) in pixels; affects work time (default is 256)
       -e - equalize image (enhances contrast)
       -i - invert image colors
 
